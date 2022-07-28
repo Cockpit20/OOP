@@ -93,14 +93,14 @@ void sort(struct student s[], int n)
             total[i] = total[i] + s[i].marks[j];
         }
     }
-    for (int i = 0; i <= n - 2; i++)
+    for (int i = 0; i < n - 1; i++)
     {
-        for (int j = i + 1; j <= n - 1; j++)
+        for (int j = 0; j < n - i - 1; j++)
         {
-            if (total[j] < total[j - 1])
+            if (total[j] > total[j + 1])
             {
-                swap(s, j, j - 1);
-                swap_arr(total, j, j - 1);
+                swap(s, j, j + 1);
+                swap_arr(total, j, j + 1);
             }
         }
     }
