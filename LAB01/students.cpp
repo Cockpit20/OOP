@@ -75,7 +75,7 @@ void display_students(struct student s[], int n, int start, int end)
             cout << "Marks obtained in 5 subjects: " << endl;
             for (int j = 0; j < 5; j++)
             {
-                cout << "Marks in subject " << i + 1 << " :" << s[i].marks[j] << endl;
+                cout << "Marks in subject " << j + 1 << " :" << s[i].marks[j] << endl;
             }
         }
     }

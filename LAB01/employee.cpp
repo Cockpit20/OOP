@@ -9,22 +9,19 @@ struct employee
     float basic_salary;
 };
 
-void display_salary(struct employee *ptr,int n)
+void display_salary(struct employee *employees,int n)
 {
-    cout<<endl<<"Emp.ID\tName\tAge\tGross Salary:"<<endl;
+    cout<<endl<<"Emp.ID\tName\tAge\tBasic Salary\tGross Salary:"<<endl;
     for (int i = 0; i < n; i++)
     {
-        float da=(80/100)*ptr[i].basic_salary;
-        float hra=(10/100)*ptr[i].basic_salary;
-        float gross_salary=ptr[i].basic_salary+da+hra;
-        cout<<ptr[i].id<<"\t"<<ptr[i].name<<"\t"<<ptr[i].age<<"\t"<<gross_salary<<endl;
+        float gross_salary=0.8*((employees+i)->basic_salary)+0.1*((employees+i)->basic_salary)+((employees+i)->basic_salary);
+        cout<<(employees+i)->id<<"\t"<<(employees+i)->name<<"\t"<<(employees+i)->age<<"\t"<<(employees+i)->basic_salary<<"\t\t"<<gross_salary<<endl;
     }
 }
 
 int main()
 {
-    struct employee employees[1000],*ptr;
-    ptr=employees;
+    struct employee employees[1000];
     int n;
     cout<<"Enter the number of employees: ";
     cin>>n;
@@ -33,16 +30,16 @@ int main()
     {
         cout << "For employee " << i + 1 << ": " << endl;
         cout << "Enter employee id: ";
-        cin >> ptr[i].id;
+        cin >> employees[i].id;
 
         cout << "Enter name: ";
-        cin >> ptr[i].name;
+        cin >> employees[i].name;
 
         cout << "Enter age: ";
-        cin >> ptr[i].age;
+        cin >> employees[i].age;
 
         cout << "Enter basic salary: ";
-        cin >> ptr[i].basic_salary;
+        cin >> employees[i].basic_salary;
     }
     display_salary(employees,n);
 }
