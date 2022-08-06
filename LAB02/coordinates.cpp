@@ -25,7 +25,7 @@ public:
         return y;
     }
 
-    double distance(coordinates C1,coordinates C2)
+    double findDistance(coordinates C1,coordinates C2)
     {
         int x=C2.getx()-C1.getx();
         int y=C2.gety()-C1.gety();
@@ -51,5 +51,5 @@ int main()
     C2.setData(x2,y2);
     coordinates C;
 
-    cout<<C.distance(C1,C2);
+    cout<<C.findDistance(C1,C2);
 }
