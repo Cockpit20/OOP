@@ -9,10 +9,11 @@ private:
     int y;
 
 public:
-    void setData(int xco,int yco)
+    void setData()
     {
-        x=xco;
-        y=yco;
+        static int i=1;
+        cout << "Enter coordinates of point "<<i++<<": ";
+        cin >> x >> y;
     }
 
     int getx()
@@ -25,31 +26,23 @@ public:
         return y;
     }
 
-    double findDistance(coordinates C1,coordinates C2)
+    double findDistance(coordinates C1, coordinates C2)
     {
-        int x=C2.getx()-C1.getx();
-        int y=C2.gety()-C1.gety();
-        double x2=pow((double)x,2);
-        double y2=pow((double)y,2);
-        return pow((x2+y2),0.5);
+        int x = C2.getx() - C1.getx();
+        int y = C2.gety() - C1.gety();
+        double x2 = pow((double)x, 2);
+        double y2 = pow((double)y, 2);
+        return pow((x2 + y2), 0.5);
     }
-    
 };
 
 int main()
 {
-    int x1,y1,x2,y2;
-    cout<<"Enter coordinates of point 1: ";
-    cin>>x1>>y1;
-
-    cout<<"Enter coordinates of point 2: ";
-    cin>>x2>>y2;
-
     coordinates C1;
-    C1.setData(x1,y1);
+    C1.setData();
     coordinates C2;
-    C2.setData(x2,y2);
-    coordinates C;
+    C2.setData();
 
-    cout<<C.findDistance(C1,C2);
+    coordinates C;
+    cout << C.findDistance(C1, C2);
 }

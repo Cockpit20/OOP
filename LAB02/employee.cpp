@@ -5,81 +5,76 @@ using namespace std;
 class employee
 {
 private:
-    int id;
-    char name[50];
-    int age;
-    float basic_salary;
+    int n;
+    int id[100], age[100];
+    char name[100][50];
+    float salary[100];
 
 public:
-    void setData(int i, char n[], int a, float bs)
+    void setData()
     {
-        id = i;
-        strcpy(name, n);
-        age = a;
-        basic_salary = bs;
+        cout << "Enter the number of employees: ";
+        cin >> n;
+        for (int i = 0; i < n; i++)
+        {
+            cout << "For employee " << i + 1 << ": " << endl;
+            cout << "Enter employee id: ";
+            cin >> id[i];
+
+            cout << "Enter name: ";
+            cin >> name[i];
+
+            cout << "Enter age: ";
+            cin >> age[i];
+
+            cout << "Enter basic salary: ";
+            cin >> salary[i];
+        }
     }
 
-    int getid()
+    int getid(int i)
     {
-        return id;
+        return id[i];
     }
 
-    string getname()
+    string getname(int i)
     {
-        return name;
+        return name[i];
     }
 
-    int getage()
+    int getage(int i)
     {
-        return age;
+        return age[i];
     }
 
-    float getBasicSalary()
+    float getBasicSalary(int i)
     {
-        return basic_salary;
+        return salary[i];
     }
 
-    float getGrossSalary(float basic_salary)
+    float getGrossSalary(int i)
     {
-        float da = 0.8 * basic_salary;
-        float hra = 0.1 * basic_salary;
-        float gross_salary = basic_salary + da + hra;
+        float da = 0.8 * salary[i];
+        float hra = 0.1 * salary[i];
+        float gross_salary = salary[i] + da + hra;
         return gross_salary;
+    }
+
+    void displayData()
+    {
+        cout << endl
+             << "Emp.ID\tName\tAge\tBasic Salary\tGross Salary:" << endl;
+        for (int i = 0; i < n; i++)
+        {
+            float gross_salary = getGrossSalary(i);
+            cout << getid(i) << "\t" << getname(i) << "\t" << getage(i) << "\t" << getBasicSalary(i) << "\t\t" << gross_salary << endl;
+        }
     }
 };
 
 int main()
 {
-    int id[100], age[100];
-    char name[100][50];
-    float salary[100];
-    int n;
-    cout << "Enter the number of employees: ";
-    cin >> n;
-
-    for (int i = 0; i < n; i++)
-    {
-        cout << "For employee " << i + 1 << ": " << endl;
-        cout << "Enter employee id: ";
-        cin >> id[i];
-
-        cout << "Enter name: ";
-        cin >> name[i];
-
-        cout << "Enter age: ";
-        cin >> age[i];
-
-        cout << "Enter basic salary: ";
-        cin >> salary[i];
-    }
-
-    cout << endl
-         << "Emp.ID\tName\tAge\tBasic Salary\tGross Salary:" << endl;
-    for (int i = 0; i < n; i++)
-    {
-        employee e;
-        e.setData(id[i],name[i],age[i],salary[i]);
-        float gross_salary = e.getGrossSalary(salary[i]);
-        cout << e.getid() << "\t" << e.getname() << "\t" << e.getage() << "\t" << e.getBasicSalary() << "\t\t" << gross_salary << endl;
-    }
+    employee e;
+    e.setData();
+    e.displayData();
 }

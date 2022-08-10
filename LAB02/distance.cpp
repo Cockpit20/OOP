@@ -9,10 +9,11 @@ private:
     int inches;
 
 public:
-    void setData(int f, int i)
+    void setData()
     {
-        feet = f;
-        inches = i;
+        static int i=1;
+        cout << "Enter distance "<<i++<<" in feet and inches: ";
+        cin >> feet >> inches;
     }
 
     int getfeet()
@@ -37,24 +38,18 @@ public:
         }
         C3.feet = feet;
         C3.inches = inches;
-        cout << C3.getfeet() << " feet " << C3.getinches() << " inches"<<endl;
+        cout << C3.getfeet() << " feet " << C3.getinches() << " inches" << endl;
     }
 };
 
 int main()
 {
-    int d1_feet, d2_feet, d3_feet, d1_inch, d2_inch, d3_inch;
-    cout << "Enter dist 1 in feet and inches: ";
-    cin >> d1_feet >> d1_inch;
     dist C1;
-    C1.setData(d1_feet, d1_inch);
+    C1.setData();
 
-    cout << "Enter dist 2 in feet and inches: ";
-    cin >> d2_feet >> d2_inch;
     dist C2;
-    C2.setData(d2_feet, d2_inch);
+    C2.setData();
 
     dist C3;
-
     C3.add(C1, C2);
 }

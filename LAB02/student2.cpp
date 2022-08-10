@@ -10,14 +10,18 @@ private:
     float marks[5];
 
 public:
-
-    void setData(char n[], int r, float m[])
+    void setData()
     {
-        strcpy(name, n);
-        roll = r;
+        cout << "Enter name:";
+        cin.get(name, 50);
+
+        cout << "Enter roll:";
+        cin >> roll;
+
+        cout << "Enter marks of 5 subjects:";
         for (int i = 0; i < 5; i++)
         {
-            marks[i]=m[i];
+            cin >> marks[i];
         }
     }
 
@@ -29,43 +33,29 @@ public:
     {
         return roll;
     }
-    
-    float getTotalMarks(float m[])
+
+    float getTotalMarks()
     {
-        float total=0;
+        float total = 0;
         for (int i = 0; i < 5; i++)
         {
-            total+=m[i];
+            total += marks[i];
         }
         return total;
     }
 
-    float getPercent(float total)
+    float getPercent()
     {
-        return ((float)(total)/(float)(500))*(float)(100);
+        return ((float)(getTotalMarks()) / (float)(500)) * (float)(100);
     }
 };
 
 int main()
 {
-    char name[50];
-    int roll;
-    float marks[50];
-    cout << "Enter name:";
-    cin.get(name, 50);
-
-    cout << "Enter roll:";
-    cin >> roll;
-
-    cout << "Enter marks of 5 subjects:";
-    for (int i = 0; i < 5; i++)
-    {
-        cin >> marks[i];
-    }
     student s;
-    s.setData(name,roll,marks);
+    s.setData();
     cout << "Name:" << s.getName() << endl;
     cout << "Roll:" << s.getRoll() << endl;
-    cout << "Total:" << s.getTotalMarks(marks) << endl;
-    cout << "Percentage:" << s.getPercent(s.getTotalMarks(marks)) << endl;
+    cout << "Total:" << s.getTotalMarks() << endl;
+    cout << "Percentage:" << s.getPercent() << endl;
 }

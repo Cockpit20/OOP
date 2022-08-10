@@ -10,11 +10,16 @@ private:
     float total_marks;
 
 public:
-    void setData(char n[], int r, float tm)
+    void setData()
     {
-        strcpy(name, n);
-        roll = r;
-        total_marks = tm;
+        cout << "Enter name:";
+        cin.get(name, 50);
+
+        cout << "Enter roll:";
+        cin >> roll;
+
+        cout << "Enter marks:";
+        cin >> total_marks;
     }
     string getName()
     {
@@ -32,21 +37,9 @@ public:
 
 int main()
 {
-    char name[50];
-    int roll;
-    float marks;
-    cout << "Enter name:";
-    cin.get(name, 50);
-
-    cout << "Enter roll:";
-    cin >> roll;
-
-    cout << "Enter marks:";
-    cin >> marks;
-
     student s;
-    s.setData(name,roll,marks);
-    cout << s.getName() << endl;
-    cout << s.getRoll() << endl;
-    cout << s.getMarks() << endl;
+    s.setData();
+    cout << "Name:" << s.getName() << endl;
+    cout << "Roll:" << s.getRoll() << endl;
+    cout << "Total:" << s.getMarks() << endl;
 }

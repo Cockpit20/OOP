@@ -5,45 +5,44 @@ using namespace std;
 class complex
 {
 private:
-    int real;
-    int img;
+    int real[5], img[5];
 
 public:
-    void setData(int r,int i)
+    void setData()
     {
-        real=r;
-        img=i;
+        for (int i = 0; i < 5; i++)
+        {
+            cout << "For number " << i + 1 << ": " << endl;
+            cout << "Enter the real part:";
+            cin >> real[i];
+            cout << "Enter the imaginary part:";
+            cin >> img[i];
+        }
     }
 
-    int getReal()
+    int getReal(int i)
     {
-        return real;
+        return real[i];
     }
 
-    int getImg()
+    int getImg(int i)
     {
-        return img;
+        return img[i];
+    }
+
+    void displayData()
+    {
+        cout << "The numbers are: " << endl;
+        for (int i = 0; i < 5; i++)
+        {
+            cout << getReal(i) << "+" << getImg(i) << "i" << endl;
+        }
     }
 };
 
 int main()
 {
-    int real[5],img[5];
-    for (int i = 0; i < 5; i++)
-    {
-        cout<<"For number "<<i+1<<": "<<endl;
-        cout<<"Enter the real part:";
-        cin>>real[i];
-        cout<<"Enter the imaginary part:";
-        cin>>img[i];
-    }
-
-    cout<<"The numbers are: "<<endl;
-    for (int i = 0; i < 5; i++)
-    {
-        complex c;
-        c.setData(real[i],img[i]);
-        cout<<c.getReal()<<"+"<<c.getImg()<<"i"<<endl;
-    }
-
+    complex c;
+    c.setData();
+    c.displayData();
 }
