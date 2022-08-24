@@ -32,26 +32,6 @@ public:
         }
     }
 
-    int getid(int i)
-    {
-        return id[i];
-    }
-
-    string getname(int i)
-    {
-        return name[i];
-    }
-
-    int getage(int i)
-    {
-        return age[i];
-    }
-
-    float getBasicSalary(int i)
-    {
-        return salary[i];
-    }
-
     float getGrossSalary(int i)
     {
         float da = 0.8 * salary[i];
@@ -67,7 +47,7 @@ public:
         for (int i = 0; i < n; i++)
         {
             float gross_salary = getGrossSalary(i);
-            cout << getid(i) << "\t" << getname(i) << "\t" << getage(i) << "\t" << getBasicSalary(i) << "\t\t" << gross_salary << endl;
+            cout << id[i] << "\t" << name[i] << "\t" << age[i] << "\t" << salary[i] << "\t\t" << gross_salary << endl;
         }
     }
 };

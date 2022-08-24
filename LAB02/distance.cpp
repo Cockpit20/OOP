@@ -11,8 +11,8 @@ private:
 public:
     void setData()
     {
-        static int i=1;
-        cout << "Enter distance "<<i++<<" in feet and inches: ";
+        static int i = 1;
+        cout << "Enter distance " << i++ << " in feet and inches: ";
         cin >> feet >> inches;
     }
 
@@ -38,7 +38,22 @@ public:
         }
         C3.feet = feet;
         C3.inches = inches;
-        cout << C3.getfeet() << " feet " << C3.getinches() << " inches" << endl;
+        cout << "Total Distance= " << C3.getfeet() << " feet " << C3.getinches() << " inches" << endl;
+    }
+
+    dist add(dist C2)
+    {
+        dist C3;
+        int f = feet + C2.getfeet();
+        int i = inches + C2.getinches();
+        if (i >= 12)
+        {
+            i = i % 12;
+            f++;
+        }
+        C3.feet = f;
+        C3.inches = i;
+        return C3;
     }
 };
 
@@ -51,5 +66,10 @@ int main()
     C2.setData();
 
     dist C3;
+    cout << "By Way 1: " << endl;
     C3.add(C1, C2);
+
+    cout << "By Way 2: " << endl;
+    C3 = C1.add(C2);
+    cout << "Total Distance= " << C3.getfeet() << " feet " << C3.getinches() << " inches" << endl;
 }

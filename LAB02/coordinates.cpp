@@ -44,5 +44,5 @@ int main()
     C2.setData();
 
     coordinates C;
-    cout << C.findDistance(C1, C2);
+    cout << "Distance between the coordinates= "<< C.findDistance(C1, C2);
 }

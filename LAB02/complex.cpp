@@ -5,12 +5,12 @@ using namespace std;
 class complex
 {
 private:
-    int real[5], img[5];
+    int real[10], img[10];
 
 public:
     void setData()
     {
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 10; i++)
         {
             cout << "For number " << i + 1 << ": " << endl;
             cout << "Enter the real part:";
@@ -20,22 +20,12 @@ public:
         }
     }
 
-    int getReal(int i)
-    {
-        return real[i];
-    }
-
-    int getImg(int i)
-    {
-        return img[i];
-    }
-
     void displayData()
     {
         cout << "The numbers are: " << endl;
-        for (int i = 0; i < 5; i++)
+        for (int i = 0; i < 10; i++)
         {
-            cout << getReal(i) << "+" << getImg(i) << "i" << endl;
+            cout << real[i] << "+" << img[i] << "i" << endl;
         }
     }
 };
