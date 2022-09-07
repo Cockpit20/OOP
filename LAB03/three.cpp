@@ -23,7 +23,6 @@ public:
 
     friend void getCount(random ob)
     {
-        count++;
         cout<<"Number of functions called is "<<count;
     }
 };

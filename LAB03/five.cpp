@@ -18,7 +18,7 @@ public:
 
         for (int i = 0; i < n; i++)
         {
-            cout<<"For student "<<i+1<<": "<<endl;
+            cout<<"For book "<<i+1<<": "<<endl;
             cout<<"Enter name: ";
             cin>>name[i];
 
