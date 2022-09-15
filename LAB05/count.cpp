@@ -24,5 +24,5 @@ void object::display()
 int main()
 {
     object c1, c2, c3;
-    c1.display();
+    object::display();
 }
