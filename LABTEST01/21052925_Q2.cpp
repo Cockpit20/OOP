@@ -7,7 +7,6 @@ class Meter
 {
 private:
     float data;
-    int r;
 
 public:
     void getvalue()
@@ -16,8 +15,7 @@ public:
         cin >> data;
     }
 
-    friend void sum(Meter, CentiMeter);
-    friend void display(Meter, CentiMeter);
+    friend float sum(Meter, CentiMeter);
 };
 
 class CentiMeter
@@ -31,15 +29,19 @@ public:
         cout << "Enter the value in centimeter:";
         cin >> data;
     }
-    friend void sum(Meter, CentiMeter);
-    friend void display(Meter, CentiMeter);
+    friend float sum(Meter, CentiMeter);
 };
 
-void sum(Meter a, CentiMeter b)
+float sum(Meter a, CentiMeter b)
 {
     float result;
     result = a.data + (b.data) / 100;
-    cout << "Total distance in meters(m)= " << result << "m";
+    return result;
+}
+
+void display(float result)
+{
+    cout << "Total distance in meters(m)= " << result << " m";
 }
 
 int main()
@@ -48,5 +50,6 @@ int main()
     CentiMeter b;
     a.getvalue();
     b.getvalue();
-    sum(a, b);
+    float s=sum(a, b);
+    display(s);
 }

@@ -56,7 +56,6 @@ int main()
     cout << "Distance between centre of 2 circles= "<<d << endl;               
 
     int val=c1.IsInteresting(c1,c2,d);
-    
     if(val==1)
     cout<<"Circles intersect each other."<<endl;
     else
