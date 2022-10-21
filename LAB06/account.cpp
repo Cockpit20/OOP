@@ -94,8 +94,8 @@ public:
         cout << "Enter the amount to be withdrawn: ";
         cin >> amount;
 
-        if (over_due_amount>0)
-            cout << "Money cannot be withdrawn. Overdue amount unpaid." << endl;
+        if (balance-amount<over_due_amount)
+            cout << "Money cannot be withdrawn. Overdue amount reached." << endl;
         else
         {
             balance = balance - amount;
