@@ -1,21 +1,21 @@
 #include <iostream>
+#include<string.h>
 using namespace std;
 class student
 {
-protected:
     char name[20];
     int roll;
 
 public:
-    void getdata()
+    student(char n[],int r)
     {
-        cout << "Enter name and roll: ";
-        cin >> name >> roll;
+        strcpy(name,n);
+        roll=r;
     }
 };
 class test : public virtual student
 {
-protected:
+public:
     int sub1;
     int sub2;
     int sub3;
@@ -23,10 +23,13 @@ protected:
     int sub5;
 
 public:
-    void getmark()
+    test(int s1,int s2,int s3,int s4,int s5):student(n,r)
     {
-        cout << "Enter marks of 5 subjects: ";
-        cin >> sub1 >> sub2 >> sub3 >> sub4 >> sub5;
+        sub1=s1;
+        sub2=s2;
+        sub3=s3;
+        sub4=s4;
+        sub5=s5;
     }
     void details()
     {
@@ -35,24 +38,28 @@ public:
         cout << "Marks in 5 subjects : " << sub1 << ", " << sub2 << ", " << sub3 << ", " << sub4 << ", " << sub5 << endl;
     }
 };
-class sports : public virtual student
+class sports
 {
-protected:
+public:
     int msports;
 
 public:
-    void getspo()
+    sports(int ms)
     {
-        cout << "Enter marks in sports : ";
-        cin >> msports;
+        msports=ms;
     }
 };
-class result : public sports, public test
+
+class result : public test, public sports
 {
     int total;
     float percent;
 
 public:
+    result():test(sub1,sub2,sub3,sub4,sub5),sports(msports)
+    {
+
+    }
     void display()
     {
         cout << "Marks in sports = " << msports << endl;
@@ -64,6 +71,15 @@ public:
 };
 int main()
 {
+
+    cout << "Enter name and roll: ";
+        cin >> name >> roll;
+
+        cout << "Enter marks of 5 subjects: ";
+        cin >> sub1 >> sub2 >> sub3 >> sub4 >> sub5;
+
+        cout << "Enter marks in sports : ";
+        cin >> msports;
     result ob1;
     ob1.getdata();
     ob1.getmark();
